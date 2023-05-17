@@ -139,6 +139,7 @@ export default {
             }
         },
         async predict(newTask) {
+           // console.log(`${newTask}`);
             try {
                 const res = await fetch('http://localhost:5000/predict', {
                     method: 'POST',

@@ -11,7 +11,6 @@
             <h4>Readings you input will be used to calculate the market viability of the area.</h4>
             <form class="form-box" @submit="onSubmit">
 
-
                 <div class="form-input first-input">
                     <label>Average Household Income</label>
                     <input type="text" v-model="householdIncome" name="householdIncome" @keypress="checkNumber" />
@@ -71,6 +70,7 @@ export default {
             businessCost: '',
             projectCost: '',
             operationalCost: '',
+            loading: false,
             result: {},
             showModal: false,
         }
@@ -91,52 +91,53 @@ export default {
         onSubmit(e) {
             e.preventDefault();
             console.log('newTask ass');
-            // if (this.loading === false) {
-            //     if (!this.householdIncome) {
-            //         alert('Please input average household income');
-            //         return;
-            //     }
-            //     else if (!this.businessIncome) {
-            //         alert('Please input average business income');
-            //         return;
-            //     }
-            //     else if (!this.householdCost) {
-            //         alert('Please input average household cost');
-            //         return;
-            //     }
-            //     else if (!this.businessCost) {
-            //         alert('Please input average business cost');
-            //         return;
-            //     }
-            //     else if (!this.projectCost) {
-            //         alert('Please input estimated cost of project');
-            //         return;
-            //     } else if (!this.operationalCost) {
-            //         alert('Please input estimated annual operational cost');
-            //         return;
-            //     }
+            if (this.loading === false) {
+                if (!this.householdIncome) {
+                    alert('Please input average household income');
+                    return;
+                }
+                else if (!this.businessIncome) {
+                    alert('Please input average business income');
+                    return;
+                }
+                else if (!this.householdCost) {
+                    alert('Please input average household cost');
+                    return;
+                }
+                else if (!this.businessCost) {
+                    alert('Please input average business cost');
+                    return;
+                }
+                else if (!this.projectCost) {
+                    alert('Please input estimated cost of project');
+                    return;
+                } else if (!this.operationalCost) {
+                    alert('Please input estimated annual operational cost');
+                    return;
+                }
 
-            //     const newTask = {
-            //         householdIncome: this.householdIncome,
-            //         businessIncome: this.businessIncome,
-            //         householdCost: this.householdCost,
-            //         businessCost: this.businessCost,
-            //         projectCost: this.projectCost,
-            //         operationalCost: this.operationalCost,
-            //     }
+                const newTask = {
+                    householdIncome: this.householdIncome,
+                    businessIncome: this.businessIncome,
+                    householdCost: this.householdCost,
+                    businessCost: this.businessCost,
+                    projectCost: this.projectCost,
+                    operationalCost: this.operationalCost,
+                }
 
-            //     console.log('newTask is ', newTask);
+                console.log('newTask is ', newTask);
 
-            //     this.loading = true;
+                this.loading = true;
 
-            //     this.measure(newTask);
-            // }
+                this.measure(newTask);
+            }
         },
         async measure(newTask) {
+            // console.log(`${newTask}`);
             try {
                 const res = await fetch('http://localhost:5000/measure', {
                     method: 'POST',
-                    body: JSON.stringify(newTask),
+                     body: JSON.stringify(newTask),
                     headers: {
                         'Content-type': 'application/json',
                     },

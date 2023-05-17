@@ -23,7 +23,9 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/temt-energy-app/'),//process.env.BASE_URL
+    // DEV BASE ROUTE: process.env.BASE_URL
+    // PROD BASE ROUTE: '/temt-energy-app/' i.e github repo name
+    history: createWebHistory('/temt-energy-app/'),
     routes
 })
 
