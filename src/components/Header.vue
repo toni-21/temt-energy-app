@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <h1 class="header__title">
-            <a href="/" class="header__title__link">
+            <router-link to="/" class="header__title__link">
                 <svg alt="Logo" class="header_logo" width="40" height="41" viewBox="0 0 40 41" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -9,7 +9,7 @@
                         fill="#FF630B" />
                 </svg>
                 <h2 class="header__title__text">TEMT ENERGY</h2>
-            </a>
+            </router-link>
         </h1>
     </header>
 </template>

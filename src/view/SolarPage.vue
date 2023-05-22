@@ -18,20 +18,20 @@
 
                 <div class="form-input">
                     <label>Pressure - Hg</label>
-                    <input type="text" v-model="pressure" name="pressure" @keypress="checkNumber"/>
+                    <input type="text" v-model="pressure" name="pressure" @keypress="checkNumber" />
                 </div>
                 <div class="form-input first-input">
                     <label>Humidity- %</label>
-                    <input type="text" v-model="humidity" name="humidity" @keypress="checkNumber"/>
+                    <input type="text" v-model="humidity" name="humidity" @keypress="checkNumber" />
                 </div>
 
                 <div class="form-input">
                     <label>Wind Direction - Degrees</label>
-                    <input type="text" v-model="windDirection" name="windDirection" @keypress="checkNumber"/>
+                    <input type="text" v-model="windDirection" name="windDirection" @keypress="checkNumber" />
                 </div>
                 <div class="form-input first-input">
                     <label>Wind Speed - MPH</label>
-                    <input type="text" v-model="windSpeed" name="windSpeed" @keypress="checkNumber"/>
+                    <input type="text" v-model="windSpeed" name="windSpeed" @keypress="checkNumber" />
                 </div>
 
                 <div class="form-input">
@@ -125,10 +125,10 @@ export default {
                     temperature: this.temperature,
                     pressure: this.pressure,
                     humidity: this.humidity,
-                    windDirection: this.windDirection,
-                    windSpeed: this.windSpeed,
-                    day: this.day,
-                    time: this.time
+                    wind_direction: this.windDirection,
+                    wind_speed: this.windSpeed,
+                    day_of_year: this.day,
+                    time_of_day: this.time
                 }
 
                 console.log('newTask is ', newTask);
@@ -139,9 +139,9 @@ export default {
             }
         },
         async predict(newTask) {
-           // console.log(`${newTask}`);
+            console.log(`${newTask}`);
             try {
-                const res = await fetch('http://localhost:5000/predict', {
+                const res = await fetch('https://temt-energy.herokuapp.com/predict', {
                     method: 'POST',
                     body: JSON.stringify(newTask),
                     headers: {

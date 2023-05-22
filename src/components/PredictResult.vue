@@ -5,7 +5,7 @@
                 <i class="fa fa-times" style="font-size:30px " aria-hidden="true"></i>
             </div>
             <div class="h4">Solar Irradiance Results</div>
-            <div class="h6">1013 Watts/m&sup2;</div>
+            <div class="h6">{{ result.solarIrradiance }} Watts/m&sup2;</div>
             <div>
                 <SliderComponent :value="result.solarIrradiance" />
             </div>
@@ -154,11 +154,11 @@ p {
 }
 
 .dark-green {
-    background-color: rgba(45, 135, 30, 1);
+    background-color:rgba(27, 190, 0, 1);
 }
 
 .light-green {
-    background-color: rgba(36, 255, 0, 1);
+    background-color:  rgba(142, 240, 44, 1);
 
 }
 

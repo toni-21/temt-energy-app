@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createMemoryHistory, createRouter } from "vue-router";
 
 import HomePage from '../view/HomePage.vue';
 import MarketPage from '../view/MarketPage.vue';
@@ -25,7 +25,7 @@ const routes = [
 const router = createRouter({
     // DEV BASE ROUTE: process.env.BASE_URL
     // PROD BASE ROUTE: '/temt-energy-app/' i.e github repo name
-    history: createWebHistory('/temt-energy-app/'),
+    history: createMemoryHistory('/temt-energy-app/'),
     routes
 })
 

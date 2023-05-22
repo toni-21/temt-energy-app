@@ -4,7 +4,7 @@
 
         <div class="form-header">
             <span style="color: white">Measure </span>
-            <span style="color: rgba(255, 148, 33, 1)">Market Availability</span>
+            <span style="color: rgba(255, 148, 33, 1)">Market Viability</span>
         </div>
         <div class="container">
             <h3 class="form-title">Please Input your readings</h3>
@@ -12,29 +12,29 @@
             <form class="form-box" @submit="onSubmit">
 
                 <div class="form-input first-input">
-                    <label>Average Household Income</label>
+                    <label>Average Household Income (₦)</label>
                     <input type="text" v-model="householdIncome" name="householdIncome" @keypress="checkNumber" />
                 </div>
                 <div class="form-input">
-                    <label>Average Business Income</label>
+                    <label>Average Business Income (₦)</label>
                     <input type="text" v-model="businessIncome" name="businessIncome" @keypress="checkNumber" />
                 </div>
 
                 <div class="form-input first-input">
-                    <label>Average Household Costs</label>
+                    <label>Average Household Costs (₦)</label>
                     <input type="text" v-model="householdCost" name="householdCost" @keypress="checkNumber" />
                 </div>
                 <div class="form-input">
-                    <label>Average Business Costs</label>
+                    <label>Average Business Costs (₦)</label>
                     <input type="text" v-model="businessCost" name="businessCost" @keypress="checkNumber" />
                 </div>
 
                 <div class="form-input first-input">
-                    <label>Estimated Cost of Project</label>
+                    <label>Estimated Cost of Project (₦)</label>
                     <input type="text" v-model="projectCost" name="projectCost" @keypress="checkNumber" />
                 </div>
                 <div class="form-input">
-                    <label>Estimated Annual Operational costs</label>
+                    <label>Estimated Annual Operational costs (₦)</label>
                     <input type="text" v-model="operationalCost" name="operationalCost" @keypress="checkNumber" />
                 </div>
                 <button @click="onSubmit" class="btn btn-block">
@@ -42,7 +42,7 @@
                         <i class="fa fa-spinner fa-spin"></i> Loading...
                     </span>
                     <span v-else>
-                        Measure Market Availability
+                        Measure Market Viability
                     </span>
                 </button>
             </form>
@@ -117,12 +117,12 @@ export default {
                 }
 
                 const newTask = {
-                    householdIncome: this.householdIncome,
-                    businessIncome: this.businessIncome,
-                    householdCost: this.householdCost,
-                    businessCost: this.businessCost,
-                    projectCost: this.projectCost,
-                    operationalCost: this.operationalCost,
+                    Average_Household_Income: this.householdIncome,
+                    Average_Business_Income: this.businessIncome,
+                    Average_Household_Costs: this.householdCost,
+                    Average_Business_Costs: this.businessCost,
+                    Estimated_Cost_Of_Project: this.projectCost,
+                    Estimated_Annual_Operational_Costs: this.operationalCost,
                 }
 
                 console.log('newTask is ', newTask);
@@ -135,7 +135,7 @@ export default {
         async measure(newTask) {
             // console.log(`${newTask}`);
             try {
-                const res = await fetch('http://localhost:5000/measure', {
+                const res = await fetch('https://temt-energy.herokuapp.com/measure', {
                     method: 'POST',
                      body: JSON.stringify(newTask),
                     headers: {

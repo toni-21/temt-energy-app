@@ -1,12 +1,12 @@
 <template>
     <div class="slider-meter">
         <div class="slider-brace"></div>
-        <div class="slider-pointer" :style="{ marginLeft: `${value / 1000 * 600}px` }">{{ value }}</div>
+        <div class="slider-pointer" :style="{ marginLeft: `${value / 1350 * 600}px` }"></div>
         <div class="slider">
             <div class="slider-bg red"></div>
             <div class="slider-bg orange"></div>
-            <div class="slider-bg yellow"></div>
-            <div class="slider-bg green"></div>
+            <div class="slider-bg light-green"></div>
+            <div class="slider-bg dark-green"></div>
         </div>
         <div class="slider-brace"></div>
     </div>
@@ -71,16 +71,18 @@ export default {
     background-color: orange;
 }
 
-.yellow {
+.light-green {
     left: 50%;
     right: 25%;
-    background-color: yellow;
+    background-color: rgba(142, 240, 44, 1);
+
 }
 
-.green {
+.dark-green {
     left: 75%;
     right: 0;
-    background-color: green;
+    background-color: rgba(27, 190, 0, 1);
+
 }
 
 .slider-label {

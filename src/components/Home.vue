@@ -1,6 +1,6 @@
 <template>
     <div class="home-container">
-        <div class="title">Creating Renewable Energy for the Future</div>
+        <div class="title">Facilitating Renewable Energy for the Future</div>
         <div class="subtitle">
             Renewable energy is crucial for a sustainable future, reducing our dependence on non-renewable resources and
             mitigating climate change. By utilizing natural resources like the sun, wind, and water, we can create clean
